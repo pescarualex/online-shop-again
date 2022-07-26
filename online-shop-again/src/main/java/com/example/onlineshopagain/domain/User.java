@@ -3,6 +3,7 @@ package com.example.onlineshopagain.domain;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -12,8 +13,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @NotNull
+    @NotEmpty
     private String firstName;
     @NotNull
+    @NotEmpty
     private String lastName;
 
 //    @OneToOne

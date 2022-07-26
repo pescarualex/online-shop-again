@@ -2,7 +2,7 @@ package com.example.onlineshopagain.dto;
 
 import javax.validation.constraints.NotNull;
 
-public class UserDto {
+public class SaveUserRequest {
 
     @NotNull
     private String firstName;
