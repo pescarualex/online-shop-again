@@ -2,6 +2,7 @@ package com.example.onlineshopagain.serive;
 
 import com.example.onlineshopagain.domain.User;
 import com.example.onlineshopagain.dto.SaveUserRequest;
+import com.example.onlineshopagain.exception.ResourceNotFoundException;
 import com.example.onlineshopagain.persistance.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,8 +40,13 @@ public class UserService {
 //        }
     }
 
-    public Optional<User> getUser(Long id) {
-        return userRepository.findById(id);
+    public User getUser(long id) {
+        LOGGER.info("Getting user: {}", id);
+
+        return userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " was not found."));
+
+
     }
 
 
